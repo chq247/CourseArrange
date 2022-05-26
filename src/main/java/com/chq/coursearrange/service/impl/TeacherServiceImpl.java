@@ -47,4 +47,10 @@ public class TeacherServiceImpl extends ServiceImpl<TeacherDao, Teacher> impleme
         int teacherSize = teacherDao.getSize();
         return teacherSize;
     }
+
+    @Override
+    public int getTeacherReg(String yesday) {
+        int teacherReg = teacherDao.teacherReg(yesday);
+        return teacherReg;
+    }
 }

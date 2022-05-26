@@ -41,4 +41,10 @@ public class ClassInfoServiceImpl extends ServiceImpl<ClassInfoDao, ClassInfo> i
         int classSize = classInfoDao.getSize();
         return classSize;
     }
+
+    @Override
+    public ClassInfo selectByClassNo(String substring) {
+        ClassInfo classInfo = classInfoDao.selectByClassNo(substring);
+        return classInfo;
+    }
 }

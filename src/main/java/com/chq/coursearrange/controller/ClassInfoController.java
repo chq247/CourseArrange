@@ -15,6 +15,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.List;
 
 /**
@@ -66,6 +68,21 @@ public class ClassInfoController {
         List<ClassInfo> classInfoList = classInfoService.list(wrapper);
 
         return ServerResponse.ofSuccess(classInfoList);
+    }
+
+    /**
+     * 根据教师名称查询教师编号
+     * @return
+     */
+    @PostMapping("/classInfo/selectByClassName")
+    public ServerResponse selectClassNo(@RequestBody String classNo) throws UnsupportedEncodingException {
+        String decode = URLDecoder.decode(classNo,"UTF-8");
+        String substring = decode.substring(0, decode.length() - 1);
+        ClassInfo classInfo = classInfoService.selectByClassNo(substring);
+        if (classInfo!=null){
+            return ServerResponse.ofSuccess(classInfo);
+        }
+        return ServerResponse.ofError("查询失败");
     }
 
     /**

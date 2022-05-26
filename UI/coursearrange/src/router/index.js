@@ -7,14 +7,10 @@ import Admin from '@/views/loginModular/Admin';
 import SystemData from '@/views/systemdataModular/SystemData/';
 import ClassTaskList from '@/views/courseSchedulingManagement/ClassTaskList';
 import CourseTable from '@/views/courseSchedulingManagement/CourseTable';
-import OnlineCategory from '@/views/onlineCourseManagement/OnlineCategory';
-import OnlineCourse from '@/views/onlineCourseManagement/OnlineCourse';
 import TeacherList from '@/views/basicManagement/TeacherList';
 import ClassManager from '@/views/basicManagement/ClassManager';
 import StudentList from '@/views/basicManagement/StudentList';
-import StudyDocs from '@/views/resourcesMaterial/StudyDocs';
 import CourseInfoList from '@/views/basicManagement/CourseInfoList';
-import Exercise from '@/views/resourcesMaterial/Exercise';
 import ClassroomList from '@/views/teachingFacilities/ClassroomList';
 import TeachBuildingList from '@/views/teachingFacilities/TeachBuildingList';
 import TeachAreaSetting from '@/views/teachingFacilities/TeachAreaSetting';
@@ -27,7 +23,6 @@ import EmptyClassroom from '@/home/components/EmptyClassroom';
 import StudentCenter from '@/home/components/Center';
 import StudentPassword from '@/home/components/Password';
 import UpdatePass from '@/pages/components/UpdatePass';
-import StudentDoc from '@/home/components/StudentDoc';
 import StudentMain from '@/home/StudentMain';
 
 Vue.use(Router)
@@ -99,11 +94,6 @@ const router = new Router({
           path: '/password',
           name: 'Password',
           component: StudentPassword
-        },
-        {
-          path: '/studentdoc',
-          name: 'StudentDoc',
-          component: StudentDoc
         }
       ]
     },
@@ -116,11 +106,6 @@ const router = new Router({
           path: '/help',
           name: 'Help',
           component: Help
-        },
-        {
-          path: '/onlinecategory',
-          name: 'OnlineCategory',
-          component: OnlineCategory
         },
         {
           path: '/updatepass',
@@ -178,24 +163,9 @@ const router = new Router({
           component: TeachAreaSetting
         },
         {
-          path: '/onlinecourse',
-          name: 'OnlineCourse',
-          component: OnlineCourse
-        },
-        {
-          path: '/studydocs',
-          name: 'StudyDocs',
-          component: StudyDocs
-        },
-        {
           path: '/homework',
           name: 'HomeWork',
           component: HomeWork
-        },
-        {
-          path: '/exercise',
-          name: 'Exercise',
-          component: Exercise
         }
       ]
     }

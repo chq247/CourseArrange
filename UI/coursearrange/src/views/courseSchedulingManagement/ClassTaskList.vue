@@ -30,19 +30,39 @@
     <!-- 开课任务，等待排课的课程 -->
     <el-table class="ckasstask-table" :data="classTaskData" size="mini" :stripe="true" :highlight-current-row="true">
       <el-table-column label="序号" type="selection"></el-table-column>
-      <el-table-column prop="semester" label="学期" ></el-table-column>
-      <el-table-column prop="gradeNo" label="年级" width="60px"></el-table-column>
-      <el-table-column prop="classNo" label="班级" ></el-table-column>
+      <el-table-column prop="semester" label="学期" width="110px"></el-table-column>
+      <el-table-column prop="gradeNo" label="年级" width="60px">
+        <template slot-scope="scope">
+          <span v-if="scope.row.gradeNo == '01'">大一</span>
+          <span v-if="scope.row.gradeNo == '02'">大二</span>
+          <span v-if="scope.row.gradeNo == '03'">大三</span>
+          <span v-if="scope.row.gradeNo == '04'">大四</span>
+        </template>
+      </el-table-column>
+      <el-table-column prop="className" label="班级" width="110px"></el-table-column>
       <el-table-column prop="courseNo" label="课号" ></el-table-column>
       <el-table-column prop="courseName" label="课名" ></el-table-column>
-      <el-table-column prop="courseAttr" label="课属性" ></el-table-column>
+      <el-table-column prop="courseAttr" label="课属性" >
+        <template slot-scope="scope">
+          <span v-if="scope.row.courseAttr == '01'">必修</span>
+          <span v-if="scope.row.courseAttr == '02'">选修</span>
+          <span v-if="scope.row.courseAttr == '03'">实践</span>
+          <span v-if="scope.row.courseAttr == '04'">体育</span>
+          <span v-if="scope.row.courseAttr == '05'">艺术</span>
+        </template>
+      </el-table-column>
       <el-table-column prop="teacherNo" label="讲师编号" ></el-table-column>
       <el-table-column prop="realname" label="讲师" ></el-table-column>
       <el-table-column prop="studentNum" label="学生人数" ></el-table-column>
       <el-table-column prop="weeksNumber" label="周学时" ></el-table-column>
       <el-table-column prop="weeksSum" label="周数" ></el-table-column>
       <!-- 是否固定时间 -->
-      <el-table-column prop="isFix" label="固定" ></el-table-column>
+      <el-table-column prop="isFix" label="固定" >
+        <template slot-scope="scope">
+          <span v-if="scope.row.isFix == '1'">否</span>
+          <span v-if="scope.row.isFix == '2'">是</span>
+        </template>
+      </el-table-column>
       <!-- 只有固定上课时间才会有固定的时间在时间这个列中 -->
       <el-table-column prop="classTime" label="时间" ></el-table-column>
 
@@ -82,18 +102,30 @@
           </el-select>
         </el-form-item>
         
-        <!-- 班级编号 -->
-        <el-form-item label="班级编号" prop="classNo">
-          <!-- <el-input v-model="addClassTaskForm.classNo" autocomplete="off"></el-input> -->
-          <el-select v-model="addClassTaskForm.classNo" placeholder="请选择班级编号" style="width: 200px;float: left;" clearable>
-            <el-option
-              v-for="item in classNos"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
-        </el-form-item>
+        <el-row>
+          <el-col :span="8">
+            <!-- 班级编号 -->
+            <el-form-item label="班级" prop="className">
+              <!-- <el-input v-model="addClassTaskForm.classNo" autocomplete="off"></el-input> -->
+              <el-select v-model="addClassTaskForm.className" placeholder="请选择班级" style="width: 200px;float: left;" clearable>
+                <el-option
+                  v-for="item in classNames"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                  @click.native="choiceclassNo()"
+                  >
+                </el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <!-- 班级编号编号，根据选择的班级自动填充班级编号 -->
+            <el-form-item label="班级编号" prop="classNo" style="width: 200px; margin-left: 60px">
+              <el-input v-model="addClassTaskForm.classNo" autocomplete="off" :disabled="true" style="width: 200px;"></el-input>
+            </el-form-item>
+          </el-col>
+        </el-row>
           
         <el-row>
           <el-col :span="8">
@@ -219,7 +251,7 @@ export default {
   name: "ClassTaskList",
   data() {
     return {
-      classNos: [], // 班级编号数据
+      classNames: [], // 班级编号数据
       courseNames: [], //课程名数据
       teacherNames: [], //教师数据
       importBtnDisabled: false, // 按钮是否禁用,
@@ -268,6 +300,7 @@ export default {
       addClassTaskForm: {
         semester: '',
         gradeNo: '',
+        className: '',
         classNo: '',
         courseNo: '',
         courseName: '',
@@ -281,6 +314,7 @@ export default {
         classTime: ''
       },
       visible: false,
+      updateOrAdd: '',
       page: 1,
       total: 0,
       pageSize: 10,
@@ -344,6 +378,17 @@ export default {
       })
     },
 
+    // 根据已选择的班级填充课班级编号
+    choiceclassNo(){
+      this.$axios.post("http://localhost:8080/classInfo/selectByClassName", this.addClassTaskForm.className)
+      .then(res => {
+        this.addClassTaskForm.classNo = res.data.data.classNo;
+      })
+      .catch(error => {
+        alert(res.data.message)
+      })
+    },
+
     // 根据已选择的课程名填充课程编号
     choiceCourseNo(){
       this.$axios.post("http://localhost:8080/courseinfo/selectByCourseName", this.addClassTaskForm.courseName)
@@ -372,12 +417,12 @@ export default {
 
     // 获取所有课堂编号
     getGradeNo() {
-      this.classNos = [];
+      this.classNames = [];
       this.$axios.get("http://localhost:8080/class-grade/" + this.addClassTaskForm.gradeNo)
       .then(res => {
         res.data.data.forEach(val => {
-          var lab = { label: val.classNo, value: val.id };
-          this.classNos.push(lab);
+          var lab = { label: val.className, value: val.classNo, key: val.id };
+          this.classNames.push(lab);
         });
       })
       .catch(error => {
@@ -387,27 +432,45 @@ export default {
 
     // 提交添加
     commit() {
-      this.$axios.post("http://localhost:8080/addclasstask", this.addClassTaskForm)
-      .then(res => {
-        if (res.data.code == 0) {
-          // 添加完成
-          this.allClassTask()
-          this.visible = false
-          this.$message({message: "修改课程任务成功！", type: "success"})
-        } else {
-          alert(res.data.message)
-        }
-      })
-      .catch(error => {
-
-      })
+      if (this.updateOrAdd == '0'){
+        this.$axios.post("http://localhost:8080/addclasstask", this.addClassTaskForm)
+        .then(res => {
+          if (res.data.code == 0) {
+            // 添加完成
+            this.allClassTask()
+            this.visible = false
+            this.$message({message: "添加课程任务成功！", type: "success"})
+          } else {
+            alert(res.data.message)
+          }
+        })
+        .catch(error => {
+        })
+      } else if(this.updateOrAdd == '1'){
+        this.$axios.post("http://localhost:8080/updateClasstask", this.addClassTaskForm)
+        .then(res => {
+          if (res.data.code == 0) {
+            // 修改完成
+            this.allClassTask()
+            this.visible = false
+            this.$message({message: "修改课程任务成功！", type: "success"})
+          } else {
+            alert(res.data.message)
+          }
+        })
+        .catch(error => {
+        })
+      }
+      
     },
 
     // 手动添加课程任务
     addClassTask() {
-      this.visible = true
+      this.updateOrAdd = '0';
+      this.addClassTaskForm = {};
       this.getCourseNameAll();
       this.getRealnameAll();
+      this.visible = true
     },
 
     // 点击开始提交学期到系统后台排课
@@ -427,11 +490,6 @@ export default {
         this.$message.error('排课失败')
       })
     },
-
-    // 下载模板
-    // downloadTemplate() {
-    //   window.location.href = 'http://localhost:8080/download'
-    // },
 
     // 上传成功
     uploadSuccess(response, file, fileList) {
@@ -466,13 +524,12 @@ export default {
     },
 
     editById(index, row) {
+      this.updateOrAdd = '1';
       this.addClassTaskForm = Object.assign({}, row);
       this.getCourseNameAll();
       this.getRealnameAll();
       this.getGradeNo();
       this.visible = true
-      
-
     },
 
     handleSizeChange() {},

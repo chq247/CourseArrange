@@ -26,4 +26,16 @@ public class StudentServiceImpl extends ServiceImpl<StudentDao, Student> impleme
         return studentDao.selectOne(wrapper);
     }
 
+    @Override
+    public int getSize() {
+        int studentSize = studentDao.getSize();
+        return studentSize;
+    }
+
+    @Override
+    public int getStudentReg(String yesday) {
+        int studentReg = studentDao.studentReg(yesday);
+        return studentReg;
+    }
+
 }

@@ -54,19 +54,23 @@ public class SystemController {
         int teachbuilds = teachbuildInfoService.count();
         int classrooms = classroomService.count();
         int classtasks = classTaskService.count();
+        int studentSize = studentService.getSize();
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE,-1);
         Date d = cal.getTime();
         SimpleDateFormat sp = new SimpleDateFormat("yyyy-MM-dd");
         String yesday = sp.format(d);
-        int teacherReg = teacherDao.teacherReg(yesday);
+        int teacherReg = teacherService.getTeacherReg(yesday);
+        int studentReg = studentService.getStudentReg(yesday);
         map.put("teachers", taacherSize);
-        map.put("courses", courseSize);
+        map.put("students", studentSize);
         map.put("classes", classeSize);
-        map.put("teachbuilds", teachbuilds);
-        map.put("classtasks", classtasks);
         map.put("classrooms", classrooms);
+        map.put("teachbuilds", teachbuilds);
+        map.put("courses", courseSize);
+        map.put("classtasks", classtasks);
         map.put("teacherReg", teacherReg);
+        map.put("studentReg", studentReg);
         return ServerResponse.ofSuccess(map);
     }
 

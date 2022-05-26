@@ -15,7 +15,15 @@
       <!-- <el-table-column prop="id" label="ID"></el-table-column> -->
       <el-table-column prop="courseNo" label="课程编号"></el-table-column>
       <el-table-column prop="courseName" label="课程名"></el-table-column>
-      <el-table-column prop="courseAttr" label="课程属性"></el-table-column>
+      <el-table-column prop="courseAttr" label="课程属性">
+         <template slot-scope="scope">
+          <span v-if="scope.row.courseAttr == '01'">必修</span>
+          <span v-if="scope.row.courseAttr == '02'">选修</span>
+          <span v-if="scope.row.courseAttr == '03'">实践</span>
+          <span v-if="scope.row.courseAttr == '04'">体育</span>
+          <span v-if="scope.row.courseAttr == '05'">艺术</span>
+        </template>
+      </el-table-column>
       <!-- <el-table-column prop="publisher" label="出版社"></el-table-column> -->
       <el-table-column prop="remark" label="备注"></el-table-column>
 
@@ -87,7 +95,7 @@ export default {
            { required: true, message: '请输入教材名', trigger: 'blur' },
         ],
         courseAttr: [
-           { required: true, message: '课程属性，01:语数英，02:物化生政史地,03:实验课,04:体育课', trigger: 'blur' },
+           { required: true, message: '课程属性，01-必修，02-选修，03-实践，04体育，05-艺术', trigger: 'blur' },
         ]
       }
     };

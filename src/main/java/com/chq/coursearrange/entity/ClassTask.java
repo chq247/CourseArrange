@@ -53,6 +53,10 @@ public class ClassTask extends Model<ClassTask> {
     @Excel(name = "班级")
     private String classNo;
 
+    @TableField("class_name")
+    @Excel(name = "班级")
+    private String className;
+
     /**
      * 课程编号
      */

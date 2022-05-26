@@ -46,33 +46,32 @@ public class ClassTaskController {
     /**
      * 手动添加课程任务
      *
-     * @param c
+     * @param classTask
      * @return
      */
     @PostMapping("/addclasstask")
-    public ServerResponse addClassTask(@RequestBody() ClassTaskDTO c) {
-        System.out.println(c);
-        ClassTask classTask = new ClassTask();
-        classTask.setSemester(c.getSemester());
-        classTask.setGradeNo(c.getGradeNo());
-        classTask.setClassNo(c.getClassNo());
-        classTask.setCourseNo(c.getCourseNo());
-        classTask.setCourseName(c.getCourseName());
-        classTask.setTeacherNo(c.getTeacherNo());
-        classTask.setRealname(c.getRealname());
-        classTask.setCourseAttr(c.getCourseAttr());
-        classTask.setStudentNum(c.getStudentNum());
-        classTask.setWeeksNumber(c.getWeeksNumber());
-        classTask.setWeeksSum(c.getWeeksSum());
-        classTask.setIsFix(c.getIsFix());
-        classTask.setClassTime(c.getClassTime());
+    public ServerResponse addClassTask(@RequestBody ClassTask classTask) {
         classTask.setDeleted(false);
         boolean b = classTaskService.save(classTask);
-
         if (b) {
             return ServerResponse.ofSuccess("添加课程任务成功");
         }
         return ServerResponse.ofError("添加课程任务失败");
+    }
+
+    /**
+     * 手动添加课程任务
+     *
+     * @param classTask
+     * @return
+     */
+    @PostMapping("/updateClasstask")
+    public ServerResponse updateClassTask(@RequestBody ClassTask classTask) {
+        boolean b = classTaskService.updateById(classTask);
+        if (b) {
+            return ServerResponse.ofSuccess("修改课程任务成功");
+        }
+        return ServerResponse.ofError("修改课程任务失败");
     }
 
 

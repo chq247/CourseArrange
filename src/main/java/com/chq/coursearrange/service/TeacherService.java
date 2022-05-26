@@ -24,4 +24,6 @@ public interface TeacherService extends IService<Teacher> {
     Teacher selectByRealName(String substring);
 
     int getSize();
+
+    int getTeacherReg(String yesday);
 }

@@ -19,4 +19,6 @@ public interface ClassInfoService extends IService<ClassInfo> {
     IPage<ClassInfoVO> selectClassAndTeacherAll(Page<ClassInfoVO> pg);
 
     int getSize();
+
+    ClassInfo selectByClassNo(String substring);
 }

@@ -86,8 +86,8 @@ export default {
   methods: {
 
     addTeachbuild() {
-      this.visibleForm = true
       this.type = 2
+      this.visibleForm = true
       this.editFormData = {}
     },
 
@@ -95,13 +95,10 @@ export default {
      * 提交更新
      */
     commit() {
-      alert(this.type)
       if (this.type == 1) {
         // 编辑
-        alert(this.type)
         this.modifyTeachBuild(this.editFormData)
-      } else {
-        alert(this.type)
+      } else if(this.type == 2){
         // type = 2 添加
         this.newteachbuild(this.editFormData)
       }
@@ -110,9 +107,6 @@ export default {
 
     // 添加教学楼
     newteachbuild(modifyData) {
-      alert('添加')
-      console.log(modifyData);
-      
       this.$axios
         .post("http://localhost:8080/teachbuildinfo/add", modifyData)
         .then(res => {
@@ -136,10 +130,10 @@ export default {
     },
 
     editById(index, row) {
+      this.type = 1
       let modifyId = row.id
       this.editFormData = row
       this.visibleForm = true
-      this.type = 1
     },
 
     handleCurrentChange(v) {

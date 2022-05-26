@@ -85,12 +85,9 @@ export default {
               this.sysData.classrooms,
               this.sysData.teachbuilds,
               this.sysData.courses,
-              this.sysData.docs,
-              this.sysData.onlineCourse,
-              this.sysData.exercises,
               this.sysData.classtasks,
               this.sysData.studentReg,
-              this.sysData.teacherReg,
+              this.sysData.teacherReg
             ]
           }
         ]
