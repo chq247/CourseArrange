@@ -141,7 +141,6 @@ export default {
 
   // 发起请求
   postForm(url) {
-    console.log(url)
     this.$axios.post(url, {
       id: this.passForm.id,
       oldPass: this.passForm.oldPass,

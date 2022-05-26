@@ -175,7 +175,6 @@ export default {
           }
         })
         .catch(error => {
-          console.log("查询教学楼失败")
         });
     },
 

@@ -259,7 +259,6 @@ export default {
         .get("http://localhost:8080/courseinfo/selectCourse")
         .then(res => {
           if (res.data.code == 0) {
-            console.log("999", res.data.data)
             res.data.data.forEach(el => {
               this.teachs.push({
               key: el.id,
@@ -267,7 +266,6 @@ export default {
               label: el.courseName
             })
             });
-            console.log("33333", this.teachs)
           }
         })
         .catch(error => {});
@@ -278,7 +276,6 @@ export default {
 
     // 提交添加讲师的表单
     addCommit() {
-      console.log(this.addTeacherForm);
       this.$axios
         .post("http://localhost:8080/teacher/add", this.addTeacherForm)
         .then(res => {
@@ -353,7 +350,6 @@ export default {
             this.keyword
         )
         .then(res => {
-          console.log(res);
           let ret = res.data.data;
           this.teacherData = ret.records;
           this.total = ret.total;

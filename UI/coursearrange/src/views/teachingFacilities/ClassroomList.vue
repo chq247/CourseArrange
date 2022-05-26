@@ -197,7 +197,6 @@ export default {
       this.$axios
         .get("http://localhost:8080/classroom/" + this.page)
         .then(res => {
-          console.log(res)
           if (res.data.code == 0) {
             let ret = res.data.data;
             this.classroomData = ret.records;
@@ -205,7 +204,6 @@ export default {
           }
         })
         .catch(error => {
-          console.log("查询教室失败");
         });
     }
   }

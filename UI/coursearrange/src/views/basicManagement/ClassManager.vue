@@ -150,7 +150,6 @@ export default {
   methods: {
     // 提交添加班级
     commit() {
-      console.log('******', this.addClassData);
       this.$axios.post("http://localhost:8080/addclassinfo", this.addClassData)
       .then(res => {
         if (res.data.code == 0) {
@@ -176,7 +175,6 @@ export default {
     allTeacher() {
       this.$axios.get("http://localhost:8080/teacher/all")
       .then(res => {
-        console.log(res)
         if (res.data.code == 0) {
           let ret = res.data.data
           this.teacher.splice(0, this.teacher.length)
@@ -242,7 +240,6 @@ export default {
     deleteById(index, row) {},
 
     editById(index, row) {
-      console.log('8888777789999', row);
       this.addClassData = Object.assign({}, row);
       this.allTeacher();
       this.visible = true

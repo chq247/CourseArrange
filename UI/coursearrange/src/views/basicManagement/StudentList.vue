@@ -191,7 +191,6 @@ export default {
           "http://localhost:8080/student-class/" + this.page + "/" + this.value2
         )
         .then(res => {
-          console.log(res)
           if (res.data.code == 0) {
             let ret = res.data.data
             this.studentData = ret.records

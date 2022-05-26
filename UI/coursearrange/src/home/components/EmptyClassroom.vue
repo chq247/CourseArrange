@@ -93,7 +93,6 @@ export default {
     queryByNo(teachbuildNo) {
       this.$axios.get("http://localhost:8080/classroom/empty/" + teachbuildNo)
       .then(res => {
-        console.log(res)
         if (res.data.code == 0) {
           // let ret = res.data.data
           this.classroomData = res.data.data
@@ -108,7 +107,6 @@ export default {
       this.$axios
         .get("http://localhost:8080/teachbuildinfo/list")
         .then(res => {
-          console.log(res);
           if (res.data.code == 0) {
             let ret = res.data.data;
             this.teachbuild.splice(0, this.teachbuild.length);

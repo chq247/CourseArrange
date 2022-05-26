@@ -551,7 +551,6 @@ export default {
           this.semesterData = ret
         })
         .catch(error => {
-          console.log("查询学期失败");
         });
     },
 

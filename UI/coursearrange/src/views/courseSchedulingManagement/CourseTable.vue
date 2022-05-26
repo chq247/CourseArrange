@@ -173,7 +173,6 @@ export default {
       this.$axios
         .get("http://localhost:8080/courseplan/" + this.value3)
         .then(res => {
-          console.log('88555',res)
           let courseData = res.data.data;
           let level = 0;
           let times = 0;

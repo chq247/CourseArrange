@@ -235,7 +235,6 @@ export default {
           // this.courseInfoData = ret.records
           this.courseInfoData = res.data.data
           this.total = ret.total
-          console.log("777", res.data)
         })
         .catch(error => {
           this.$message.error("查询教材信息失败")

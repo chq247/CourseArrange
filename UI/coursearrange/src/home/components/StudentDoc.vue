@@ -50,7 +50,6 @@ export default {
   methods: {
     // 下载
     downloadById(index, row) {
-      console.log(row.docUrl);
       window.location.href = row.docUrl;
     },
 
@@ -77,7 +76,6 @@ export default {
               this.toClassNo
           )
           .then(res => {
-            console.log(res);
             if (res.data.code == 0) {
               let ret = res.data.data;
               this.docData = ret.records;
