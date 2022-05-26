@@ -46,7 +46,7 @@
               <template slot="title">
                 <i class="el-icon-reading"></i>基本信息
               </template>
-                <el-menu-item index="2-1">
+                <el-menu-item index="2-1" v-if="!isTeacher">
                   <router-link to="/teacherlist" class="links">教师管理</router-link>
                 </el-menu-item>
                 <el-menu-item index="2-2">
@@ -59,46 +59,6 @@
                   <router-link to="/courseinfolist" class="links">课程管理</router-link>
                 </el-menu-item>
             </el-submenu>
-
-            <!-- <el-submenu index="3" v-if="!isTeacher">
-              <template slot="title">
-                <i class="el-icon-user"></i>讲师管理
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="3-1">
-                  <router-link to="/teacherlist" class="links">所有讲师</router-link>
-                </el-menu-item>
-              </el-menu-item-group>
-            </el-submenu> -->
-
-            <!-- <el-submenu index="4">
-              <template slot="title">
-                <i class="el-icon-box"></i>班级管理
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="4-1">
-                  <router-link to="/classmanager" class="links">所有班级</router-link>
-                </el-menu-item>
-              </el-menu-item-group>
-            </el-submenu> -->
-
-          
-
-            <!-- <el-submenu index="6">
-              <template slot="title">
-                <i class="el-icon-notebook-1"></i>教学资料
-              </template>
-              <el-menu-item index="6-1">
-                <router-link class="links" to="/studydocs">学习文档</router-link>
-              </el-menu-item>
-              <el-menu-item index="6-2">
-                <router-link class="links" to="/exercise">在线测试</router-link>
-              </el-menu-item>
-              <el-menu-item index="6-3">
-                <router-link to="/courseinfolist" class="links">教材列表</router-link>
-              </el-menu-item>
-            </el-submenu> -->
-
             <el-submenu index="3" v-if="!isTeacher">
               <template slot="title">
                 <i class="el-icon-office-building"></i>教学设施
