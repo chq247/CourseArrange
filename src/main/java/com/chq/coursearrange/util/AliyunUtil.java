@@ -15,9 +15,7 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * @author: 15760
- * @Date: 2020/5/19
- * @Descripe: 阿里云OSS工具类
+ * @author CHQ
  */
 public class AliyunUtil {
 

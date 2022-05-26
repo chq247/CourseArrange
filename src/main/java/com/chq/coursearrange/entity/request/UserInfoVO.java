@@ -3,9 +3,7 @@ package com.chq.coursearrange.entity.request;
 import lombok.Data;
 
 /**
- * @author: 15760
- * @Date: 2020/6/4
- * @Descripe: 添加网课，上传视频时操作用户的信息，类型，id，用户名
+ * @author CHQ
  */
 @Data
 public class UserInfoVO {

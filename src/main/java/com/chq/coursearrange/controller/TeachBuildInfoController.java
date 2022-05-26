@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author lequal
- * @since 2020-03-20
+ * @author CHQ
  */
 @RestController
 @RequestMapping("/teachbuildinfo")

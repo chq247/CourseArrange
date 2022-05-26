@@ -16,9 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
 /**
- * @author: 15760
- * @Date: 2020/3/24
- * @Descripe: 拦截器
+ * @author CHQ
  */
 public class AuthenticationInterceptor implements HandlerInterceptor {
 

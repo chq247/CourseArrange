@@ -7,9 +7,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * @author: 15760
- * @Date: 2020/3/24
- * @Descripe: 拦截请求
+ * @author CHQ
  */
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {

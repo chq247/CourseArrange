@@ -7,8 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author lequal
- * @since 2020-03-20
+ * @author CHQ
  */
 @RestController
 @RequestMapping("/grade")

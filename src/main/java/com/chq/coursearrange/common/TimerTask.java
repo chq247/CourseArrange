@@ -4,9 +4,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 /**
- * @author: 15760
- * @Date: 2020/6/7
- * @Descripe: 定时任务
+ * @author CHQ
  */
 @Component
 public class TimerTask {

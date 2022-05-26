@@ -18,9 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 /**
- *
- * @author lequal
- * @since 2020-03-23
+ * @author CHQ
  */
 @RestController
 @RequestMapping("/classroom")

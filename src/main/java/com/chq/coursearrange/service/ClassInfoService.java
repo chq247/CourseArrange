@@ -7,9 +7,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.chq.coursearrange.entity.response.ClassInfoVO;
 
 /**
- *
- * @author lequal
- * @since 2020-03-06
+ * @author CHQ
  */
 public interface ClassInfoService extends IService<ClassInfo> {
 

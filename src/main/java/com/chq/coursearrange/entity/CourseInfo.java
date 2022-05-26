@@ -10,9 +10,7 @@ import java.time.LocalDateTime;
 import java.io.Serializable;
 
 /**
- *
- * @author lequal
- * @since 2020-04-03
+ * @author CHQ
  */
 @TableName("tb_course_info")
 @Data

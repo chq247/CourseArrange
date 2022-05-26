@@ -6,9 +6,7 @@ import com.chq.coursearrange.entity.Teacher;
 import lombok.Data;
 
 /**
- * @author: 15760
- * @Date: 2020/5/3
- * @Descripe:
+ * @author CHQ
  */
 @Data
 public class CoursePlanVo extends CoursePlan {

@@ -7,9 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import java.time.LocalDateTime;
 
 /**
- * @author: 15760
- * @Date: 2020/3/4
- * @Descripe: 自动更新
+ * @author CHQ
  */
 
 @Configuration

@@ -13,9 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 /**
- * @author: 15760
- * @Date: 2020/5/13
- * @Descripe:
+ * @author CHQ
  */
 @Service
 public class UploadServiceImpl implements UploadService {

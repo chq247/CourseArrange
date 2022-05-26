@@ -20,8 +20,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author lequal
- * @since 2020-04-15
+ * @author CHQ
  */
 @RestController
 public class CoursePlanController {

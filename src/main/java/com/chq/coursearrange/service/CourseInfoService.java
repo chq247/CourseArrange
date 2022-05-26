@@ -6,12 +6,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import java.util.List;
 
 /**
- * <p>
- *  服务类
- * </p>
- *
- * @author lequal
- * @since 2020-04-03
+ * @author CHQ
  */
 public interface CourseInfoService extends IService<CourseInfo> {
     List<CourseInfo> selectCourse ();

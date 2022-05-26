@@ -47,9 +47,6 @@
         <el-form-item label="课程属性" prop="courseAttr">
           <el-input v-model="editFormData.courseAttr" autocomplete="off"></el-input>
         </el-form-item>
-        <!-- <el-form-item label="出版社" prop="publisher">
-          <el-input v-model="editFormData.publisher" autocomplete="off"></el-input>
-        </el-form-item> -->
         <el-form-item label="备注">
           <el-input v-model="editFormData.remark" autocomplete="off"></el-input>
         </el-form-item>
@@ -228,13 +225,10 @@ export default {
     // 分页查询所有教材信息
     allCourseInfo() {
       this.$axios
-        // .get("http://localhost:8080/courseinfo/" + this.page)
-        .get("http://localhost:8080/courseinfo/selectCourse")
+        .get("http://localhost:8080/courseinfo/selectCourse/" + this.page)
         .then(res => {
-          let ret = res.data.data
-          // this.courseInfoData = ret.records
-          this.courseInfoData = res.data.data
-          this.total = ret.total
+          this.courseInfoData = res.data.data.records
+          this.total = res.data.data.total
         })
         .catch(error => {
           this.$message.error("查询教材信息失败")

@@ -7,8 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 
 /**
- * @author lequal
- * @since 2020-04-15
+ * @author CHQ
  */
 public interface CoursePlanDao extends BaseMapper<CoursePlan> {
 

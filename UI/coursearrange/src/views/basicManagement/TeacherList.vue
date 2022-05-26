@@ -10,35 +10,15 @@
     <!-- 讲师列表 -->
     <el-table :data="teacherData" size="mini" :stripe="true" :highlight-current-row="true">
       <el-table-column label="序号" type="selection"></el-table-column>
-      <el-table-column prop="teacherNo" label="编号" fixed width="100"></el-table-column>
-      <el-table-column prop="username" label="用户名" fixed width="100"></el-table-column>
-      <el-table-column prop="realname" label="姓名" fixed width="100"></el-table-column>
-      <el-table-column prop="jobtitle" label="职称" fixed width="100"></el-table-column>
-      <!-- <el-table-column prop="teach" label="所授科目" fixed width="80"></el-table-column> -->
-      <el-table-column prop="age" label="年龄" fixed width="50"></el-table-column>
-      <el-table-column prop="telephone" label="电话" fixed width="100"></el-table-column>
-      <el-table-column prop="email" label="邮件" fixed width="150"></el-table-column>
+      <el-table-column prop="teacherNo" label="编号" ></el-table-column>
+      <el-table-column prop="username" label="用户名" ></el-table-column>
+      <el-table-column prop="realname" label="姓名"  ></el-table-column>
+      <el-table-column prop="jobtitle" label="职称"  ></el-table-column>
+      <el-table-column prop="age" label="年龄" ></el-table-column>
+      <el-table-column prop="telephone" label="电话"  ></el-table-column>
+      <el-table-column prop="email" label="邮件" ></el-table-column>
       <el-table-column prop="address" label="地址"></el-table-column>
-      <el-table-column prop="license" label="证件照">
-        <template slot-scope="scope">
-          <el-image
-            v-if="scope.row.license != null "
-            fit="contain"
-            style="width: 50px; height: 20px"
-            :src="scope.row.license"
-            :preview-src-list="scope.row.license.split('#')"
-          ></el-image>
-          <el-upload
-            v-else
-            :action="'http://localhost:8080/teacher/upload/' + scope.row.id"
-            :on-success="handleUploadSuccess"
-          >
-            <i class="el-icon-upload2" style="cursor:pointer"></i>
-          </el-upload>
-        </template>
-      </el-table-column>
-
-      <el-table-column prop="operation" label="操作">
+      <el-table-column prop="operation" label="操作" width="150px">
         <template slot-scope="scope">
           <el-button type="danger" size="mini" @click="deleteById(scope.$index, scope.row)">删除</el-button>
           <el-button type="primary" size="mini" @click="editById(scope.$index, scope.row)">编辑</el-button>

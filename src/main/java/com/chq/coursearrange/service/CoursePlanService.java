@@ -4,12 +4,7 @@ import com.chq.coursearrange.entity.CoursePlan;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
- * <p>
- *  服务类
- * </p>
- *
- * @author lequal
- * @since 2020-04-15
+ * @author CHQ
  */
 public interface CoursePlanService extends IService<CoursePlan> {
 

@@ -3,9 +3,7 @@ package com.chq.coursearrange.entity.request;
 import lombok.Data;
 
 /**
- * @author: 15760
- * @Date: 2020/3/14
- * @Descripe: 封装学生登录的请求体
+ * @author CHQ
  */
 @Data
 public class StudentLoginRequest {

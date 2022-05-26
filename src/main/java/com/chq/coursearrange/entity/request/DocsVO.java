@@ -5,9 +5,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 /**
- * @author: 15760
- * @Date: 2020/5/27
- * @Descripe:
+ * @author CHQ
  */
 @Data
 public class DocsVO {

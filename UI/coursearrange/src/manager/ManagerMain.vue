@@ -4,18 +4,18 @@
     <el-container>
       <el-header>
         <!-- 头 -->
-        <el-header style="text-align: right; font-size: 12px">
-          <!-- 系统标题 -->
+        <span style="text-align: left; font-size: 24px; float: left">高 校 智 能 排 课 管 理 系 统</span>
+        <!-- 系统标题 -->
+        <div style="text-align: right; font-size: 15px; float: right">
           <el-dropdown @command="handleCommand">
-            <i class="el-icon-setting" style="margin-right: 15px"></i>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item command="center">个人中心</el-dropdown-item>
-              <el-dropdown-item command="updatePassword">修改密码</el-dropdown-item>
-              <el-dropdown-item command="exit">退出</el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>您好，
-          <span>{{name}}</span>
-        </el-header>
+          <i class="el-icon-setting" style="margin-right: 13px"></i>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="center">个人中心</el-dropdown-item>
+            <el-dropdown-item command="updatePassword">修改密码</el-dropdown-item>
+            <el-dropdown-item command="exit">退出</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>您好，<span>{{name}}</span>
+        </div>
       </el-header>
       <el-container>
         <el-aside width="200px">
@@ -73,14 +73,14 @@
                 <router-link to="/setteacharea" class="links">教学区域安排</router-link>
               </el-menu-item>
             </el-submenu>
-            <el-submenu index="4">
+            <!-- <el-submenu index="4">
               <template slot="title">
                 <i class="el-icon-help"></i>帮助中心
               </template>
               <el-menu-item index="4-1">
                 <router-link to="/help" class="links" >使用说明</router-link>
               </el-menu-item>
-            </el-submenu>
+            </el-submenu> -->
 
         
           </el-menu>
@@ -182,9 +182,19 @@ export default {
   width: 100%;
 }
 
-.el-header,
-.el-footer {
-  background-color: #b3c0d1;
+.menuItem {
+  background-color: #146cef;
+}
+
+// .el-header {
+//   background-color: #5199f2;
+//   color: #333;
+//   text-align: center;
+//   line-height: 60px;
+// }
+
+.el-header,.el-footer {
+  background-color: #7f98b7;
   color: #333;
   text-align: center;
   line-height: 60px;

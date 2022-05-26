@@ -7,12 +7,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
- * <p>
- *  服务实现类
- * </p>
- *
- * @author lequal
- * @since 2020-03-20
+ * @author CHQ
  */
 @Service
 public class LocationInfoServiceImpl extends ServiceImpl<LocationInfoDao, LocationInfo> implements LocationInfoService {

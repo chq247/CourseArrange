@@ -8,9 +8,7 @@ import java.time.LocalDateTime;
 import java.io.Serializable;
 
 /**
- * @author lequal
- * @since 2020-05-27
- * 学习文档，作业(以文档形式下发，学生下载查看或者在线预览)
+ * @author CHQ
  */
 @TableName("tb_doc")
 @Data

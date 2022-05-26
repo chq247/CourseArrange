@@ -8,12 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 /**
- * <p>
- *  Mapper 接口
- * </p>
- *
- * @author lequal
- * @since 2020-03-20
+ * @author CHQ
  */
 public interface LocationInfoDao extends BaseMapper<LocationInfo> {
 

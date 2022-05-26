@@ -20,9 +20,7 @@ import java.net.URLDecoder;
 import java.util.List;
 
 /**
- * 班级信息
- * @author lequal
- * @since 2020-03-06
+ * @author CHQ
  */
 @RestController
 public class ClassInfoController {

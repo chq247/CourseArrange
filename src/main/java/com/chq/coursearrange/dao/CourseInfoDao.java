@@ -6,12 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 /**
- * <p>
- *  Mapper 接口
- * </p>
- *
- * @author lequal
- * @since 2020-04-03
+ * Mapper 接口
+ * @author CHQ
  */
 @Mapper
 public interface CourseInfoDao extends BaseMapper<CourseInfo> {

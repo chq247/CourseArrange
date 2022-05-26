@@ -6,12 +6,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import java.util.List;
 
 /**
- * <p>
- *  服务类
- * </p>
- *
- * @author lequal
- * @since 2020-03-13
+ * @author CHQ
  */
 public interface TeacherService extends IService<Teacher> {
 

@@ -10,9 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 
 /**
- * @author: 15760
- * @Date: 2020/3/24
- * @Descripe: Token下发
+ * @author CHQ
  */
 
 @Service

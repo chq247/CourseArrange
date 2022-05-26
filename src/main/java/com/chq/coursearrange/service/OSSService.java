@@ -4,9 +4,7 @@ import com.chq.coursearrange.common.ServerResponse;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * @author: 15760
- * @Date: 2020/5/21
- * @Descripe:
+ * @author CHQ
  */
 public interface OSSService {
 

@@ -1,9 +1,7 @@
 package com.chq.coursearrange.entity.request;
 
 /**
- * @author: 15760
- * @Date: 2020/3/20
- * @Descripe: 定义属性,方便切割编码的时候选择
+ * @author CHQ
  */
 public class ConstantInfo {
 

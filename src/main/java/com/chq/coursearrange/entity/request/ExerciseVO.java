@@ -3,9 +3,7 @@ package com.chq.coursearrange.entity.request;
 import lombok.Data;
 
 /**
- * @author: 15760
- * @Date: 2020/5/21
- * @Descripe:
+ * @author CHQ
  */
 @Data
 public class ExerciseVO {

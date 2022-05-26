@@ -8,9 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Map;
 
 /**
- * @author: 15760
- * @Date: 2020/5/21
- * @Descripe: 上传实现类
+ * @author CHQ
  */
 @Service
 public class OSSServiceImpl implements OSSService {

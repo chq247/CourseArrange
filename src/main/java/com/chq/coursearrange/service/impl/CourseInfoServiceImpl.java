@@ -11,12 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * <p>
- *  服务实现类
- * </p>
- *
- * @author lequal
- * @since 2020-04-03
+ * @author CHQ
  */
 @Service
 public class CourseInfoServiceImpl extends ServiceImpl<CourseInfoDao, CourseInfo> implements CourseInfoService {

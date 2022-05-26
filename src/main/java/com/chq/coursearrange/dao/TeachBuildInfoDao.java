@@ -8,8 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 /**
- * @author lequal
- * @since 2020-03-20
+ * @author CHQ
  */
 public interface TeachBuildInfoDao extends BaseMapper<TeachbuildInfo> {
 

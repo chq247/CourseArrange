@@ -7,8 +7,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import java.util.*;
 
 /**
- * @author: 15760
- * @Date: 2020/4/1
+ * @author CHQ
  * @Descripe: 判断冲突，解码
  * 固定时间：1
  * 年级编号：2

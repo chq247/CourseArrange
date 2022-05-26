@@ -10,12 +10,7 @@ import java.time.LocalDateTime;
 import java.io.Serializable;
 
 /**
- * <p>
- * 
- * </p>
- *
- * @author lequal
- * @since 2020-03-13
+ * @author CHQ
  */
 @TableName("tb_teacher")
 @Data

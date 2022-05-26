@@ -7,8 +7,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * @author lequal
- * @since 2020-05-27
+ * @author CHQ
  */
 public interface DocService extends IService<Doc> {
 

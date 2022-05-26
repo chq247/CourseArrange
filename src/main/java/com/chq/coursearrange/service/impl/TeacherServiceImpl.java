@@ -11,8 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @author lequal
- * @since 2020-03-13
+ * @author CHQ
  */
 @Service
 public class TeacherServiceImpl extends ServiceImpl<TeacherDao, Teacher> implements TeacherService {

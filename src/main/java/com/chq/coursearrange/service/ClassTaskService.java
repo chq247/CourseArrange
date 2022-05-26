@@ -6,8 +6,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * @author lequal
- * @since 2020-04-06
+ * @author CHQ
  */
 public interface ClassTaskService extends IService<ClassTask> {
 

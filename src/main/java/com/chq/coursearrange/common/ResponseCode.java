@@ -4,9 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * @author: 15760
- * @Date: 2020/3/13
- * @Descripe: 响应状态
+ * @author CHQ
  */
 
 @AllArgsConstructor

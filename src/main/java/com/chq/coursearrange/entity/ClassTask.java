@@ -13,8 +13,7 @@ import java.time.LocalDateTime;
 import java.io.Serializable;
 
 /**
- * @author lequal
- * @since 2020-04-06
+ * @author CHQ
  */
 @TableName("tb_class_task")
 @Data

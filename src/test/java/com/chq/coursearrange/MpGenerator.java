@@ -10,9 +10,7 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author: 15760
- * @Date: 2019/11/30
- * @Descripe: 代码生成器
+ * @author CHQ
  */
 
 public class MpGenerator {

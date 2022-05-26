@@ -15,9 +15,7 @@ import java.util.List;
  * <p>
  *  Mapper 接口
  * </p>
- *
- * @author lequal
- * @since 2020-03-06
+ * @author CHQ
  */
 @Mapper
 public interface ClassInfoDao extends BaseMapper<ClassInfo> {

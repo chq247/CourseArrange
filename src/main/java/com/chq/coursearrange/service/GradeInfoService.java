@@ -4,12 +4,7 @@ import com.chq.coursearrange.entity.GradeInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
- * <p>
- *  服务类
- * </p>
- *
- * @author lequal
- * @since 2020-03-20
+ * @author CHQ
  */
 public interface GradeInfoService extends IService<GradeInfo> {
 

@@ -11,8 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * @author lequal
- * @since 2020-04-06
+ * @author CHQ
  */
 @Component
 @Mapper

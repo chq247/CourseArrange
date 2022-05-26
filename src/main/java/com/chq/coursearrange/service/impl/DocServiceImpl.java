@@ -14,8 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Map;
 
 /**
- * @author lequal
- * @since 2020-05-27
+ * @author CHQ
  */
 @Service
 public class DocServiceImpl extends ServiceImpl<DocDao, Doc> implements DocService {

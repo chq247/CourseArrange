@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.time.LocalDateTime;
 
 /**
- * @author: 15760
- * @Date: 2020/3/6
- * @Descripe:
+ * @author CHQ
  */
 public class AdminTest {
 

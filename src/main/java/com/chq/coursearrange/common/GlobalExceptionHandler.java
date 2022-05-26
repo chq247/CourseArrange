@@ -7,9 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * @author: 15760
- * @Date: 2020/3/17
- * @Descripe: 统一异常处理
+ * @author CHQ
  */
 
 @ControllerAdvice

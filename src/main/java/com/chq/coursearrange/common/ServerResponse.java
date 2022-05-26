@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 
 
 /**
- * @author: 15760
- * @Date: 2020/3/13
- * @Descripe: 响应信息
+ * @author CHQ
  */
 
 @Data

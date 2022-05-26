@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 /**
- * @author lequal
- * @since 2020-04-06
+ * @author CHQ
  */
 @RestController
 public class ClassTaskController {

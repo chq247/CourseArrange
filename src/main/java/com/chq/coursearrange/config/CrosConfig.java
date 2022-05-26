@@ -6,9 +6,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * @author: 15760
- * @Date: 2020/3/4
- * @Descripe: 解决跨域问题
+ * @author CHQ
  */
 @Configuration
 public class CrosConfig {

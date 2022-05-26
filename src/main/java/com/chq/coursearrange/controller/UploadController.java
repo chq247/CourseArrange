@@ -19,9 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author: 15760
- * @Date: 2020/5/12
- * @Descripe: 文件上传，读取文件
+ * @author CHQ
  */
 @RestController
 public class UploadController {

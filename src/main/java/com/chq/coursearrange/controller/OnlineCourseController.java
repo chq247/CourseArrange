@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 网课名称，每一个网课下面有1到多个视频
- * @author lequal
- * @since 2020-06-04
+ * @author CHQ
  */
 @RestController
 @RequestMapping("/onlinecourse")

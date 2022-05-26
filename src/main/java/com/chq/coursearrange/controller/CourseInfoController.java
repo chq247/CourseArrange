@@ -2,7 +2,10 @@ package com.chq.coursearrange.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.chq.coursearrange.common.ServerResponse;
+import com.chq.coursearrange.entity.Classroom;
 import com.chq.coursearrange.entity.CourseInfo;
 import com.chq.coursearrange.service.CourseInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +16,7 @@ import java.net.URLDecoder;
 import java.util.List;
 
 /**
- * @author lequal
- * @since 2020-04-03
- * description: 教材信息
+ * @author CHQ
  */
 @RestController
 @RequestMapping("/courseinfo")
@@ -28,13 +29,15 @@ public class CourseInfoController {
      * 查询所有课程，不带分页
      * @return
      */
-    @GetMapping("/selectCourse")
-    public ServerResponse selectCourse(){
-        List<CourseInfo> courseInfoList = cis.selectCourse();
-        if (!courseInfoList.isEmpty()){
-            return ServerResponse.ofSuccess(courseInfoList);
-        }
-        return ServerResponse.ofError("查询失败");
+    @GetMapping("/selectCourse/{page}")
+    public ServerResponse selectCourse(@PathVariable("page")Integer page,
+                                       @RequestParam(defaultValue = "10")Integer limit){
+        Page<CourseInfo> pages = new Page<>(page, limit);
+        QueryWrapper<CourseInfo> wrapper = new QueryWrapper<CourseInfo>();
+
+        IPage<CourseInfo> ipage = cis.page(pages, wrapper);
+//        List<CourseInfo> courseInfoList = cis.selectCourse();
+        return ServerResponse.ofSuccess(ipage);
     }
 
     /**

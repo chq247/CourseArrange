@@ -14,9 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author: CHQ
- * @Date: 2022/5/20
- * @Descripe: 获取系统相关的数据
+ * @author CHQ
  */
 @RestController
 public class SystemController {

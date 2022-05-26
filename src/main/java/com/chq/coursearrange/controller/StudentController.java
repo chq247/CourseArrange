@@ -22,8 +22,7 @@ import java.util.Map;
 import java.util.Random;
 
 /**
- * @author lequal
- * @since 2020-03-13
+ * @author CHQ
  */
 @RestController
 @RequestMapping("/student")

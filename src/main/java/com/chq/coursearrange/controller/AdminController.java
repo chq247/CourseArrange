@@ -17,8 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author lequal
- * @since 2020-03-06
+ * @author CHQ
  */
 @RestController
 @RequestMapping("/admin")

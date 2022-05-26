@@ -9,8 +9,7 @@ import java.time.LocalDateTime;
 import java.io.Serializable;
 
 /**
- * @author lequal
- * @since 2020-04-15
+ * @author CHQ
  */
 
 @Data

@@ -10,10 +10,7 @@ import java.time.LocalDateTime;
 import java.io.Serializable;
 
 /**
- *
- * @author lequal
- * @since 2020-03-20
- * 位置信息，例如高一的教学楼有哪些
+ * @author CHQ
  */
 @TableName("tb_location_info")
 @Data

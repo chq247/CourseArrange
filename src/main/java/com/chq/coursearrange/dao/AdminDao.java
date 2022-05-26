@@ -11,8 +11,7 @@ import org.apache.ibatis.annotations.Select;
  *  Mapper 接口
  * </p>
  *
- * @author lequal
- * @since 2020-03-06
+ * @author CHQ
  */
 @Mapper
 public interface AdminDao extends BaseMapper<Admin> {

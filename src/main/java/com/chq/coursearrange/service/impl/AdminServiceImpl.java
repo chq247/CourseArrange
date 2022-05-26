@@ -9,8 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * @author lequal
- * @since 2020-03-06
+ * @author CHQ
  */
 @Service
 public class AdminServiceImpl extends ServiceImpl<AdminDao, Admin> implements AdminService {

@@ -24,8 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author lequal
- * @since 2020-03-13
+ * @author CHQ
  */
 @RestController
 @RequestMapping("/teacher")

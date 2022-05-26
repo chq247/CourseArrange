@@ -3,9 +3,7 @@ package com.chq.coursearrange.entity.request;
 import lombok.Data;
 
 /**
- * @author: 15760
- * @Date: 2020/3/21
- * @Descripe: 需要排课的上课任务
+ * @author CHQ
  */
 @Data
 public class TeachCoursePlan {

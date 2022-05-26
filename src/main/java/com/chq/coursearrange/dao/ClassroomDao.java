@@ -8,8 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 /**
- * @author lequal
- * @since 2020-03-23
+ * @author CHQ
  */
 public interface ClassroomDao extends BaseMapper<Classroom> {
 

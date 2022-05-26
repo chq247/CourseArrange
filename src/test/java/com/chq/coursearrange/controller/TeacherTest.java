@@ -9,12 +9,6 @@
 //import javax.annotation.PostConstruct;
 //import java.time.LocalDateTime;
 //
-///**
-// * @author: 15760
-// * @Date: 2020/3/6
-// * @Descripe: 教师类测试
-// */
-//
 //@SpringBootTest
 //@RunWith(SpringRunner.class)
 //public class testTeacher {

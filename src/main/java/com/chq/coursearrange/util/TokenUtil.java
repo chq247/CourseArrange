@@ -7,9 +7,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author: 15760
- * @Date: 2020/3/24
- * @Descripe:
+ * @author CHQ
  */
 public class TokenUtil {
 

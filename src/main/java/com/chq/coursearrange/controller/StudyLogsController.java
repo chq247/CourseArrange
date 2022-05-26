@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author lequal
- * @since 2020-06-04
- * 学习记录
+ * @author CHQ
  */
 @RestController
 @RequestMapping("/studylogs")
