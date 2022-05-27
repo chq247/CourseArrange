@@ -10,7 +10,7 @@
       <!-- <el-table-column prop="id" label="ID"></el-table-column> -->
       <el-table-column prop="teachBuildNo" label="教学楼编号"></el-table-column>
       <el-table-column prop="teachBuildName" label="教学楼名称"></el-table-column>
-      <el-table-column prop="teachBuildLocation" label="所属区域"></el-table-column>
+      <!-- <el-table-column prop="teachBuildLocation" label="所属区域"></el-table-column> -->
 
       <el-table-column prop="operation" label="操作">
         <template slot-scope="scope">
@@ -29,9 +29,9 @@
         <el-form-item label="名称" prop="teachBuildName">
           <el-input v-model="editFormData.teachBuildName" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="所在区域" prop="teachBuildLocation">
+        <!-- <el-form-item label="所在区域" prop="teachBuildLocation">
           <el-input v-model="editFormData.teachBuildLocation" autocomplete="off"></el-input>
-        </el-form-item>
+        </el-form-item> -->
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="visibleForm = false">取 消</el-button>

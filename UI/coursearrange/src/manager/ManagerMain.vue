@@ -44,7 +44,7 @@
 
             <el-submenu index="2">
               <template slot="title">
-                <i class="el-icon-reading"></i>基本信息
+                <i class="el-icon-reading"></i>基本管理
               </template>
                 <el-menu-item index="2-1" v-if="!isTeacher">
                   <router-link to="/teacherlist" class="links">教师管理</router-link>
@@ -69,20 +69,7 @@
               <el-menu-item index="3-2">
                 <router-link to="/classroomlist" class="links">教室列表</router-link>
               </el-menu-item>
-              <el-menu-item index="3-3">
-                <router-link to="/setteacharea" class="links">教学区域安排</router-link>
-              </el-menu-item>
             </el-submenu>
-            <!-- <el-submenu index="4">
-              <template slot="title">
-                <i class="el-icon-help"></i>帮助中心
-              </template>
-              <el-menu-item index="4-1">
-                <router-link to="/help" class="links" >使用说明</router-link>
-              </el-menu-item>
-            </el-submenu> -->
-
-        
           </el-menu>
         </el-aside>
 

@@ -26,7 +26,7 @@ public class CourseInfoController {
     private CourseInfoService cis;
 
     /**
-     * 查询所有课程，不带分页
+     * 查询所有课程，带分页
      * @return
      */
     @GetMapping("/selectCourse/{page}")
@@ -38,6 +38,12 @@ public class CourseInfoController {
         IPage<CourseInfo> ipage = cis.page(pages, wrapper);
 //        List<CourseInfo> courseInfoList = cis.selectCourse();
         return ServerResponse.ofSuccess(ipage);
+    }
+
+    @GetMapping("/getCourse")
+    public ServerResponse getCourse(){
+        List<CourseInfo> courseInfoList = cis.selectCourse();
+        return ServerResponse.ofSuccess(courseInfoList);
     }
 
     /**

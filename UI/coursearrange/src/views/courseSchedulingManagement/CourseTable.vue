@@ -11,7 +11,12 @@
         ></el-option>
       </el-select>
       <el-select v-model="value2" placeholder="年级" @change="queryClass">
-        <el-option v-for="item in grade" :key="item.value" :label="item.label" :value="item.value"></el-option>
+        <el-option
+          v-for="item in grade"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        ></el-option>
       </el-select>
       <el-select v-model="value3" placeholder="班级" @change="queryCoursePlan">
         <el-option
@@ -31,20 +36,27 @@
               <th
                 v-for="(weekNum, weekIndex) in classTableData.courses.length"
                 :key="weekIndex"
-              >{{'周' + digital2Chinese(weekIndex + 1, 'week')}}</th>
+              >
+                {{ "周" + digital2Chinese(weekIndex + 1, "week") }}
+              </th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(lesson, lessonIndex) in classTableData.lessons" :key="lessonIndex">
+            <tr
+              v-for="(lesson, lessonIndex) in classTableData.lessons"
+              :key="lessonIndex"
+            >
               <td>
-                <p>{{'第' + digital2Chinese(lessonIndex+1) + "节"}}</p>
+                <p>{{ "第" + digital2Chinese(lessonIndex + 1) + "节" }}</p>
                 <p class="period">{{ lesson }}</p>
               </td>
 
               <td
                 v-for="(course, courseIndex) in classTableData.courses"
                 :key="courseIndex"
-              >{{classTableData.courses[courseIndex][lessonIndex] || '-'}}</td>
+              >
+                {{ classTableData.courses[courseIndex][lessonIndex] || "-" }}
+              </td>
             </tr>
           </tbody>
         </table>
@@ -57,44 +69,26 @@
 export default {
   data() {
     return {
-      semester: [
-        {
-          value: "2019-2020-1",
-          label: "2019-2020-1"
-        },
-        {
-          value: "2021-2022-1",
-          label: "2021-2022-1"
-        }
-      ],
+      semester: [],
       grade: [
         {
           value: "01",
-          label: "大一"
+          label: "大一",
         },
         {
           value: "02",
-          label: "大二"
+          label: "大二",
         },
         {
           value: "03",
-          label: "大三"
+          label: "大三",
         },
         {
           value: "04",
-          label: "大四"
+          label: "大四",
         },
-        {
-          value: "05",
-          label: "大五"
-        }
       ],
-      classNo: [
-        {
-          value: "",
-          label: ""
-        }
-      ],
+      classNo: [],
       value1: "",
       value2: "",
       value3: "",
@@ -104,8 +98,7 @@ export default {
           "9.10-10.45",
           "11.00-12.35",
           "14.20-15.55",
-          "16.10-17.45"
-
+          "16.10-17.45",
         ],
         // 每一行对应周几的一列
         // 第1节：7.20-8.55
@@ -124,17 +117,23 @@ export default {
         //   ["生物", "物理", "化学", "", "历史", "英语", "数学", "语文"],
         //   ["语文", "数学", "英语", "", "", "", "", ""]
         // ],
-        courses: [[],[],[],[],[]
+        courses: [
+          [],
+          [],
+          [],
+          [],
+          [],
           // ["生物", "物理", "化学", "政治", "历史"],
           // ["语文", "数学", "英语", "历史", "", "化学", "物理", "生物"],
           // ["生物", "", "化学", "政治", "历史", "英语", "数学", "语文"],
           // ["语文", "数学", "英语", "历史", "政治", "", "物理", "生物"],
           // ["生物", "物理", "化学", "", "历史", "英语", "数学", "语文"]
-        ]
-      }
+        ],
+      },
     };
   },
   created() {
+    this.getSemester();
     // /* mock随机数据*/
     // Mock.mock({
     //     lessons: ['08:00-09:00', '09:00-10:00', '10:00-11:00', '11:00-12:00', '13:00-14:00', '14:00-15:00', '15:00-16:00', '16:00-17:00'],
@@ -143,56 +142,77 @@ export default {
   },
   mounted() {},
   methods: {
+    getSemester() {
+      this.$axios
+        .get("http://localhost:8080/semester")
+        .then((res) => {
+          res.data.data.forEach((element) => {
+            this.semester.push({
+              value: element,
+              label: element,
+            });
+          });
+        })
+        .catch((error) => {});
+    },
 
     // 查询班级编号，班级名
     queryClass() {
       this.$axios
         .get("http://localhost:8080/class-grade/" + this.value2)
-        .then(res => {
-          //alert(this.value2)
+        .then((res) => {
           let r = res.data.data;
-          this.classNo.splice(0,this.classNo.length); 
-          this.value3 = ''
-          r.map(v=>{
+          this.classNo.splice(0, this.classNo.length);
+          this.value3 = "";
+          r.map((v) => {
             this.classNo.push({
-              value:v.classNo,
-              lable:v.className
-            })
-          })
+              value: v.classNo,
+              lable: v.className,
+            });
+          });
+          console.log("01", this.classNo);
         })
-        .catch(error => {
-          this.$message.error("失败")
+        .catch((error) => {
+          this.$message.error("失败");
         });
     },
 
     // 查询课程表
     queryCoursePlan() {
-      this.classTableData.courses.map((item, index)=>{
-        this.classTableData.courses[index].splice(0,this.classTableData.courses[index].length)
-      })
+      this.classTableData.courses.map((item, index) => {
+        this.classTableData.courses[index].splice(
+          0,
+          this.classTableData.courses[index].length
+        );
+      });
       this.$axios
         .get("http://localhost:8080/courseplan/" + this.value3)
-        .then(res => {
+        .then((res) => {
           let courseData = res.data.data;
           let level = 0;
           let times = 0;
           for (let index = 0; index < courseData.length; index++) {
             times = times + 1;
             const item = courseData[index];
-            if(parseInt(item.classTime) != times){
+            if (parseInt(item.classTime) != times) {
               this.classTableData.courses[level].push("");
               index = index - 1;
+            } else {
+              this.classTableData.courses[level].push(
+                item.teacher.realname +
+                  "-" +
+                  item.courseInfo.courseName +
+                  "(" +
+                  item.classroomNo +
+                  ")"
+              );
             }
-            else{
-              
-              this.classTableData.courses[level].push(item.teacher.realname + "-" + item.courseInfo.courseName + "(" + item.classroomNo + ")");
-            }
-            if((times % 5) == 0){
+            if (times % 5 == 0) {
               level = level + 1;
             }
           }
-          this.$message({message:'查询成功', type: 'success'})
-        })
+          this.$message({ message: "查询成功", type: "success" });
+        });
     },
 
     /**
@@ -208,7 +228,7 @@ export default {
         "二",
         "三",
         "四",
-        "五"
+        "五",
         // "六",
         // "七",
         // "八",
@@ -217,15 +237,11 @@ export default {
         ? "日"
         : character[num];
     },
-
-    
-  }
+  },
 };
 </script>
 
 <style lang="less" scoped>
-
-
 .class-table {
   .top-select {
     text-align: left;
@@ -242,9 +258,9 @@ export default {
     table {
       table-layout: fixed;
       width: 100%;
-      word-wrap:break-word;
-      word-break:break-all;
-      border-collapse:collapse;
+      word-wrap: break-word;
+      word-break: break-all;
+      border-collapse: collapse;
       thead {
         background-color: #67a1ff;
         th {

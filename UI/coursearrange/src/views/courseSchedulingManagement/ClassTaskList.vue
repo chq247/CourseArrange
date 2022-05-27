@@ -19,7 +19,7 @@
           <el-button class="add-button" 
           style="margin-left: 10px; float:left" 
           size="small" type="primary" 
-          @click="addClassTask()">手动添加</el-button>
+          @click="addClassTask()">添加课程计划</el-button>
           <el-button class="add-button" size="small" type="primary" @click="arrangeCourse()">
             排课
             <i class="el-icon-thumb el-icon--right"></i>
@@ -75,7 +75,7 @@
     </el-table>
 
     <!-- 弹出表单添加课程计划 -->
-    <el-dialog title="添加任务(参照模板填写)" 
+    <el-dialog title="添加课程计划" 
     :visible.sync="visible"
     >
       <el-form :model="addClassTaskForm" label-position="left" label-width="80px" :rules="addClassTaskRules">
@@ -112,7 +112,7 @@
                   v-for="item in classNames"
                   :key="item.value"
                   :label="item.label"
-                  :value="item.value"
+                  :value="item.label"
                   @click.native="choiceclassNo()"
                   >
                 </el-option>
@@ -291,9 +291,6 @@ export default {
         }, {
           value: '04',
           label: '大四'
-        }, {
-          value: '05',
-          label: '大五'
         }],
       classTaskData: [],
       semesterData: [],
@@ -319,11 +316,12 @@ export default {
       total: 0,
       pageSize: 10,
       // 学期选择默认值
-      semester: "2019-2020-1",
+      semester: "",
       fileList: [],
       addClassTaskRules: {
         semester: [{ required: true, message: '请输入学期', trigger: 'blur' }],
         gradeNo: [{ required: true, message: '请输入年级编号', trigger: 'blur' }],
+        className: [{ required: true, message: '请选择班级', trigger: 'blur' }],
         classNo: [{ required: true, message: '请输入班级编号', trigger: 'blur' }],
         courseNo: [{ required: true, message: '请输入课程编号', trigger: 'blur' }],
         courseName: [{ required: true, message: '请输入课程名称', trigger: 'blur' }],
@@ -403,7 +401,7 @@ export default {
     // 获取所有课程名
     getCourseNameAll(){
       this.courseNames = [];
-      this.$axios.get("http://localhost:8080/courseinfo/selectCourse")
+      this.$axios.get("http://localhost:8080/courseinfo/getCourse")
       .then(res => {
         res.data.data.forEach(val => {
           var lab = { label: val.courseName, value: val.courseName, key: val.id};
@@ -475,8 +473,11 @@ export default {
 
     // 点击开始提交学期到系统后台排课
     arrangeCourse() {
-      this.$axios.post("http://localhost:8080/arrange/" + this.semester)
-      .then(res => {
+      if(this.semester == ""){
+        alert("请选择学期");
+      }else{
+        this.$axios.post("http://localhost:8080/arrange/" + this.semester)
+        .then(res => {
         if (res.data.code == 0) {
           this.allClassTask()
           this.$message({message: '排课成功', type: 'success'})
@@ -489,6 +490,7 @@ export default {
       .catch(error => {
         this.$message.error('排课失败')
       })
+      }
     },
 
     // 上传成功
@@ -558,9 +560,13 @@ export default {
      * 获得所有开课任务
      */
     allClassTask() {
+      let semesterBak = this.semester;
+      if(this.semester == ""){
+        semesterBak = "0"
+      }
       this.$axios
         .get(
-          "http://localhost:8080/classtask/" + this.page + "/" + this.semester
+          "http://localhost:8080/classtask/" + this.page + "/" + semesterBak
         )
         .then(res => {
           let ret = res.data.data

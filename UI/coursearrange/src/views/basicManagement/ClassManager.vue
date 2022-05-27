@@ -108,6 +108,7 @@ export default {
   name: "ClassManager",
   data() {
     return {
+      addOrUpDate: "",
       classInfoData: [],
       editFormData: [],
       addClassData: {
@@ -137,9 +138,6 @@ export default {
         }, {
           value: '04',
           label: '大四'
-        }, {
-          value: '05',
-          label: '大五'
         }],
       teacher: []
     };
@@ -150,13 +148,30 @@ export default {
   methods: {
     // 提交添加班级
     commit() {
-      this.$axios.post("http://localhost:8080/addclassinfo", this.addClassData)
-      .then(res => {
+      if(this.addOrUpDate == "1"){
+        // 添加
+        this.$axios.post("http://localhost:8080/addclassinfo", this.addClassData)
+        .then(res => {
         if (res.data.code == 0) {
           this.allClassInfo()
           this.$message({message: "添加班级成功", type: "success"})
           this.visible = false
-          this.addClassData = []
+          this.addClassData = {}
+        } else {
+        }
+      })
+      .catch(error => {
+        this.$message.error("添加班级失败")
+      })
+      }else if(this.addOrUpDate == "2"){
+        // 编辑
+        this.$axios.post("http://localhost:8080/updateClassinfo", this.addClassData)
+        .then(res => {
+        if (res.data.code == 0) {
+          this.allClassInfo()
+          this.$message({message: "修改班级成功", type: "success"})
+          this.visible = false
+          this.addClassData = {}
         } else {
           alert(res.data.message)
         }
@@ -164,9 +179,11 @@ export default {
       .catch(error => {
         this.$message.error("添加班级失败")
       })
+      }
     },
 
     addClass() {
+      this.addOrUpDate = "1";
       this.allTeacher()
       this.visible = true
     },
@@ -237,9 +254,20 @@ export default {
     },
 
     // 根据id删除
-    deleteById(index, row) {},
+    deleteById(index, row) {
+      this.$axios
+        .delete("http://localhost:8080/classInfo/delete/" + row.id)
+        .then(res => {
+          this.allClassInfo();
+          this.$message({ message: "删除成功", type: "success" });
+        })
+        .catch(error => {
+          this.$message.error("删除失败");
+        });
+    },
 
     editById(index, row) {
+      this.addOrUpDate = "2";
       this.addClassData = Object.assign({}, row);
       this.allTeacher();
       this.visible = true

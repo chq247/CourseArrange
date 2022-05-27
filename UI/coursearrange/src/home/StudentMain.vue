@@ -24,28 +24,10 @@
           <!-- 侧边 -->
           <!-- 默认展开的索引default-active -->
           <el-menu :default-active="default_active" @select="handleSelect" unique-opened>
-             <el-menu-item index="/index">
-              <template slot="title">
-                <i class="el-icon-s-home"></i>
-                <span slot="title">首页</span>
-              </template>
-            </el-menu-item>
             <el-menu-item index="/courseList">
               <template slot="title">
                 <i class="el-icon-s-marketing"></i>
                 <span slot="title">课程表</span>
-              </template>
-            </el-menu-item>
-            <el-menu-item index="/studentdoc">
-              <template slot="title">
-                <i class="el-icon-document"></i>
-                <span slot="title">学习文档</span>
-              </template>
-            </el-menu-item>
-            <el-menu-item index="/emptyclassroom">
-              <template slot="title">
-                <i class="el-icon-school"></i>
-                <span slot="title">空教室查询</span>
               </template>
             </el-menu-item>
              <el-menu-item index="/center">

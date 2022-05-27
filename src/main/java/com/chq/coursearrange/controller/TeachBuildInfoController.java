@@ -31,7 +31,7 @@ public class TeachBuildInfoController {
     public ServerResponse queryTeachbuilding(@PathVariable("page") Integer page,
                                              @RequestParam(defaultValue = "10") Integer limit) {
         Page<TeachbuildInfo> pages = new Page<>(page, limit);
-        QueryWrapper<TeachbuildInfo> wrapper = new QueryWrapper<TeachbuildInfo>().orderByDesc("update_time");
+        QueryWrapper<TeachbuildInfo> wrapper = new QueryWrapper<TeachbuildInfo>().orderByAsc("teach_build_no");
         IPage<TeachbuildInfo> ipage = teachBuildInfoService.page(pages, wrapper);
         if (ipage != null) {
             return ServerResponse.ofSuccess(ipage);

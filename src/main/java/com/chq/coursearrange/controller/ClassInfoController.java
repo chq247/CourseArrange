@@ -180,6 +180,19 @@ public class ClassInfoController {
         return ServerResponse.ofError("添加班级失败");
     }
 
+    @PostMapping("/updateClassinfo")
+    public ServerResponse updateClass(@RequestBody ClassInfo classInfo) {
+        if (classInfo != null){
+            boolean isSave = classInfoService.updateById(classInfo);
+            if (isSave){
+                return ServerResponse.ofSuccess("编辑班级成功");
+            }
+            return ServerResponse.ofError("编辑班级失败");
+        }
+        return ServerResponse.ofError("编辑班级失败");
+    }
+
+
     /**
      * 查询每个班级的学生人数000000000000000000000000000000000000000000000000000000000000000000000000000000出大问题
      * @return
@@ -203,6 +216,18 @@ public class ClassInfoController {
 //        }
 //        return ServerResponse.ofSuccess();
 //    }
+
+    @DeleteMapping("/classInfo/delete/{id}")
+    public ServerResponse delete(@PathVariable("id") Integer id) {
+        if (id != null){
+            boolean isSave = classInfoService.removeById(id);
+            if (isSave){
+                return ServerResponse.ofSuccess("添加班级成功");
+            }
+            return ServerResponse.ofError("添加班级失败");
+        }
+        return ServerResponse.ofError("添加班级失败");
+    }
 
 }
 

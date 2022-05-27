@@ -33,9 +33,13 @@ public class ClassTaskController {
                                          @PathVariable("semester") String semester,
                                          @RequestParam(defaultValue = "10") Integer limit) {
         Page<ClassTask> pages = new Page<>(page, limit);
-        QueryWrapper<ClassTask> wrapper = new QueryWrapper<ClassTask>().eq("semester", semester);
-        IPage<ClassTask> ipage = classTaskService.page(pages, wrapper);
-
+        IPage<ClassTask> ipage;
+        if (semester != null && !semester.equals("0")){
+            QueryWrapper<ClassTask> wrapper = new QueryWrapper<ClassTask>().eq("semester", semester);
+            ipage = classTaskService.page(pages, wrapper);
+        }else {
+            ipage = classTaskService.page(pages);
+        }
         if (ipage != null) {
             return ServerResponse.ofSuccess(ipage);
         }
