@@ -17,12 +17,12 @@
         <el-form-item prop="password">
         <el-input  placeholder="默认密码为：123456" v-model.trim="studentRegForm.password" show-password :disabled="true"></el-input>
         </el-form-item>
-        <el-form-item prop="password2">
+        <!-- <el-form-item prop="password2">
         <el-input placeholder="默认密码为：123456" v-model.trim="studentRegForm.password2" 
         show-password autocomplete="off" 
         :disabled="true"
         ></el-input>
-        </el-form-item>
+        </el-form-item> -->
         <!-- 真实姓名 -->
         <el-input class="ele" placeholder="请输入真实姓名" v-model="studentRegForm.realname" clearable></el-input>
         <!-- 年级 -->
@@ -57,8 +57,8 @@
         <el-input class="ele" placeholder="家庭住址" v-model="studentRegForm.address" clearable></el-input>
         <!-- 按钮 -->
         <el-form-item class="button">
-          <el-button type="primary" @click="register">注册</el-button>
-          <el-button type="info" @click="hasNo">已有帐号</el-button>
+          <el-button type="primary" @click="register">录入</el-button>
+          <!-- <el-button type="info" @click="hasNo">已有帐号</el-button> -->
         </el-form-item>
       </el-form>
     </div>
@@ -102,13 +102,16 @@ export default {
         options: [
           {
             value: '01',
-            label: '高一'
+            label: '大一'
           }, {
             value: '02',
-            label: '高二'
+            label: '大二'
           }, {
             value: '03',
-            label: '高三'
+            label: '大三'
+          },{
+            value: '04',
+            label: '大四'
           }],
           grade: '',
           gradeName:''
@@ -137,6 +140,11 @@ export default {
         ]
       }
     }
+  },
+
+    created() {
+    this.studentRegForm.password = '123456';
+    this.studentRegForm.password2 = '123456';
   },
 
   methods: {
@@ -182,7 +190,6 @@ export default {
           username: this.studentRegForm.username,
           password: this.studentRegForm.password,
           realname: this.studentRegForm.realname,
-          // 年级:高一，高二这种形式
           grade: this.studentRegForm.gradeName,
           studentNo: this.studentRegForm.studentNo,
           telephone: this.studentRegForm.telephone,
@@ -193,7 +200,7 @@ export default {
           // 注册成功
           if (res.data.code == 0) {
             alert('注册成功，请用你的学号' + res.data.data.studentNo+'登录系统')
-            this.$router.push('/student/login')
+            this.$router.push('/studentList')
           } else {
             alert(res.data.message)
           }

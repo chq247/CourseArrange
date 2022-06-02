@@ -1,11 +1,9 @@
 package com.chq.coursearrange.controller;
 
-
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.chq.coursearrange.common.ServerResponse;
-import com.chq.coursearrange.entity.Classroom;
 import com.chq.coursearrange.entity.CourseInfo;
 import com.chq.coursearrange.service.CourseInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +32,7 @@ public class CourseInfoController {
                                        @RequestParam(defaultValue = "10")Integer limit){
         Page<CourseInfo> pages = new Page<>(page, limit);
         QueryWrapper<CourseInfo> wrapper = new QueryWrapper<CourseInfo>();
-
         IPage<CourseInfo> ipage = cis.page(pages, wrapper);
-//        List<CourseInfo> courseInfoList = cis.selectCourse();
         return ServerResponse.ofSuccess(ipage);
     }
 

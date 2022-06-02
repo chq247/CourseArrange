@@ -1,6 +1,5 @@
 package com.chq.coursearrange.controller;
 
-
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -30,20 +29,15 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
-
     @Autowired
     private TokenService tokenService;
 
-
     /**
-     *  学生加入班级，只有加入班级后才可以看到本班的课表，文档
-     * @param id 学生id
-     * @param classNo 班级编号
+     *  学生加入班级
      * @return
      */
     @PostMapping("/join/{id}/{classNo}")
     public ServerResponse joinClass(@PathVariable("id") Integer id, @PathVariable("classNo") String classNo) {
-        // TODO 学生加入年级，学生查看本班的文档(文档控制器中),查看自己所在的班级课表
         Student student = studentService.getById(id);
         student.setClassNo(classNo);
         boolean b = studentService.saveOrUpdate(student);
@@ -52,7 +46,6 @@ public class StudentController {
         }
         return ServerResponse.ofError("加入班级失败");
     }
-
 
     /**
      * 学生登录
@@ -122,7 +115,6 @@ public class StudentController {
         return studentService.updateById(student) ? ServerResponse.ofSuccess("修改成功") : ServerResponse.ofError("修改失败");
     }
 
-
     /**
      * 根据学生id获取
      * @param id
@@ -131,7 +123,6 @@ public class StudentController {
     @GetMapping("/{id}")
     @UserLoginToken
     public ServerResponse queryStudent(@PathVariable("id")Integer id){
-        // 查询出来需要修改的学生实体
         return ServerResponse.ofSuccess(studentService.getById(id));
     }
 
@@ -142,10 +133,8 @@ public class StudentController {
      */
     @PostMapping("/modify/{id}")
     public ServerResponse modifyTeacher(@PathVariable("id") Integer id, @RequestBody Student student) {
-
         QueryWrapper<Student> wrapper = new QueryWrapper<Student>().eq("id", id);
         boolean b = studentService.update(student, wrapper);
-
         if (b) {
             return ServerResponse.ofSuccess("更新成功");
         }
@@ -189,7 +178,6 @@ public class StudentController {
             }
         } while(true);
     }
-
 
     /**
      * 获取所有学生，带分页
@@ -261,7 +249,6 @@ public class StudentController {
         }
         return ServerResponse.ofError("密码更新失败");
     }
-
 
 }
 

@@ -1,6 +1,5 @@
 package com.chq.coursearrange.controller;
 
-
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -57,7 +56,6 @@ public class TeachBuildInfoController {
      */
     @DeleteMapping("/delete/{id}")
     public ServerResponse deleteTeachbuilding(@PathVariable("id") Integer id) {
-
         boolean b = teachBuildInfoService.removeById(id);
         if (b) {
             return ServerResponse.ofSuccess("删除成功");
@@ -91,10 +89,8 @@ public class TeachBuildInfoController {
      */
     @GetMapping("/select/{id}")
     public ServerResponse queryTeachBuildingById(@PathVariable("id") Integer id) {
-
         return ServerResponse.ofSuccess(teachBuildInfoService.getById(id));
     }
-
 
     /**
      * 更新教学楼
@@ -103,15 +99,12 @@ public class TeachBuildInfoController {
      */
     @PostMapping("/modify/{id}")
     public ServerResponse modifyTeacher(@PathVariable("id") Integer id, @RequestBody TeachbuildInfo t) {
-
         boolean b = teachBuildInfoService.update(t, new QueryWrapper<TeachbuildInfo>().eq("id", id));
-
         if (b) {
             return ServerResponse.ofSuccess("更新成功");
         }
         return ServerResponse.ofError("更新失败");
     }
-
 
 }
 

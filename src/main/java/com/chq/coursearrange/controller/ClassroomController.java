@@ -1,6 +1,5 @@
 package com.chq.coursearrange.controller;
 
-
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -23,7 +22,6 @@ import java.util.*;
 @RestController
 @RequestMapping("/classroom")
 public class ClassroomController {
-
 
     @Autowired
     private ClassroomService classroomService;
@@ -100,8 +98,6 @@ public class ClassroomController {
      */
     @PostMapping("/add")
     public ServerResponse addClassroom(@RequestBody ClassroomAddRequest car) {
-        System.out.println(car);
-        System.out.println("======================");
         Classroom c = new Classroom();
         TeachbuildInfo teachbuildInfo = t.getOne(new QueryWrapper<TeachbuildInfo>().eq("teach_build_no", car.getTeachbuildNo()));
         if (teachbuildInfo == null) {
@@ -151,7 +147,6 @@ public class ClassroomController {
      */
     @PostMapping("/modify")
     public ServerResponse modifyClassroom(@RequestBody Classroom classroom) {
-
         return classroomService.updateById(classroom) ? ServerResponse.ofSuccess("更新成功") : ServerResponse.ofError("更新失败");
     }
 

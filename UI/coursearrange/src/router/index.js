@@ -14,7 +14,6 @@ import CourseInfoList from '@/views/basicManagement/CourseInfoList';
 import ClassroomList from '@/views/teachingFacilities/ClassroomList';
 import TeachBuildingList from '@/views/teachingFacilities/TeachBuildingList';
 import TeachAreaSetting from '@/views/teachingFacilities/TeachAreaSetting';
-import Help from '@/views/helpCenter/Help';
 
 import ManagerMain from '@/manager/ManagerMain';
 import HomeWork from '@/manager/components/HomeWork';
@@ -102,11 +101,6 @@ const router = new Router({
       name: 'Admin',
       component: ManagerMain,
       children: [
-        {
-          path: '/help',
-          name: 'Help',
-          component: Help
-        },
         {
           path: '/updatepass',
           name: 'UpdatePass',

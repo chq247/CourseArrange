@@ -45,6 +45,6 @@ public interface ClassInfoDao extends BaseMapper<ClassInfo> {
     @Select("select count(*) from tb_class_info")
     int getSize();
 
-    @Select("select * from tb_class_info where class_no = #{classNo}")
+    @Select("select * from tb_class_info where class_name = #{classNo}")
     ClassInfo selectByClassNo(@Param("classNo") String classNo);
 }

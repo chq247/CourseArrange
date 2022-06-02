@@ -1,9 +1,7 @@
 package com.chq.coursearrange.controller;
 
 import com.chq.coursearrange.common.ServerResponse;
-import com.chq.coursearrange.dao.TeacherDao;
 import com.chq.coursearrange.service.*;
-import com.chq.coursearrange.dao.StudentDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,15 +30,7 @@ public class SystemController {
     @Autowired
     private TeachbuildInfoService teachbuildInfoService;
     @Autowired
-    private DocService docService;
-    @Autowired
     private ClassroomService classroomService;
-    @Autowired
-    private StudentDao studentDao;
-    @Autowired
-    private  OnlineCourseService onlineCourseService;
-    @Autowired
-    private TeacherDao teacherDao;
 
 
     @GetMapping("/systemdata")

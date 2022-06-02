@@ -1,6 +1,5 @@
 package com.chq.coursearrange.controller;
 
-
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -35,7 +34,6 @@ public class TeacherController {
     @Autowired
     private TokenService tokenService;
 
-
     /**
      * 查询所有教师信息
      * @return
@@ -63,7 +61,6 @@ public class TeacherController {
         }
         return ServerResponse.ofError("查询失败");
     }
-
 
     /**
      * 上传讲师证件

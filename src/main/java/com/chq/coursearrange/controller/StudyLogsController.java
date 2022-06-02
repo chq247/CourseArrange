@@ -1,6 +1,5 @@
 package com.chq.coursearrange.controller;
 
-
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.chq.coursearrange.common.ServerResponse;
 import com.chq.coursearrange.entity.StudyLogs;
@@ -20,7 +19,6 @@ public class StudyLogsController {
     @Autowired
     private StudyLogsService sls;
 
-
     /**
      * 添加或更新学习进度
      * @param s
@@ -37,8 +35,6 @@ public class StudyLogsController {
 
     /**
      * 根据学生id获取学习记录，上次看到哪个视频了
-     * @param id
-     * @return
      */
     @GetMapping("/get/{id}")
     public ServerResponse getLog(@PathVariable("id") Integer id) {

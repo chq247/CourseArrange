@@ -1,6 +1,5 @@
 package com.chq.coursearrange.controller;
 
-
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.chq.coursearrange.service.CourseInfoService;
@@ -29,7 +28,6 @@ public class CoursePlanController {
     private CourseInfoService courseInfoService;
     @Autowired
     private CoursePlanService coursePlanService;
-
     @Autowired
     private TeacherService teacherService;
 
@@ -44,7 +42,6 @@ public class CoursePlanController {
         List<CoursePlan> coursePlanList = coursePlanService.list(wrapper);
         List<CoursePlanVo> coursePlanVos = new LinkedList<>();
         coursePlanList.forEach(v->{
-
             CoursePlanVo coursePlanVo = JSON.parseObject(JSON.toJSONString(v), CoursePlanVo.class);
             coursePlanVo.setCourseInfo(courseInfoService.getOne(new QueryWrapper<CourseInfo>().eq("course_no",v.getCourseNo())));
             coursePlanVo.setTeacher(teacherService.getOne(new QueryWrapper<Teacher>().eq("teacher_no",v.getTeacherNo())));
@@ -52,8 +49,6 @@ public class CoursePlanController {
         });
         return ServerResponse.ofSuccess(coursePlanVos);
     }
-
-
 
 }
 

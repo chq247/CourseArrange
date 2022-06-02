@@ -60,7 +60,6 @@ public class LocationInfoController {
         return ServerResponse.ofSuccess(map);
     }
 
-
     /**
      * 根据id删除教学区域信息
      * @param id

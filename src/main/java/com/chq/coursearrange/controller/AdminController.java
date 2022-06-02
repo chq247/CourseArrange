@@ -1,7 +1,5 @@
 package com.chq.coursearrange.controller;
 
-
-
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.chq.coursearrange.common.ServerResponse;
 import com.chq.coursearrange.entity.Admin;
@@ -25,8 +23,6 @@ public class AdminController {
 
     @Autowired
     private AdminService adminService;
-    @Autowired
-    private TeacherService teacherService;
     @Autowired
     private TokenService tokenService;
 
@@ -55,7 +51,6 @@ public class AdminController {
      */
     @PostMapping("/modify")
     public ServerResponse modifyAdmin(@RequestBody Admin admin) {
-
         return adminService.updateById(admin) ? ServerResponse.ofSuccess("更新成功！") : ServerResponse.ofError("更新失败！");
     }
 
@@ -68,7 +63,6 @@ public class AdminController {
     public ServerResponse queryAdmin(@PathVariable("id") Integer id) {
         return ServerResponse.ofSuccess(adminService.getById(id));
     }
-
 
     /**
      * 管理员修改密码

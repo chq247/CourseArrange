@@ -45,15 +45,19 @@ export default {
       grade: [
         {
           value: "01",
-          label: "高一"
+          label: "大一"
         },
         {
           value: "02",
-          label: "高二"
+          label: "大二"
         },
         {
           value: "03",
-          label: "高三"
+          label: "大三"
+        },
+        {
+          value: "04",
+          label: "大四"
         }
       ],
       classNo: [

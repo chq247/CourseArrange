@@ -1,13 +1,11 @@
 package com.chq.coursearrange.controller;
 
-
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.chq.coursearrange.common.ServerResponse;
 import com.chq.coursearrange.entity.ClassTask;
 import com.chq.coursearrange.service.ClassTaskService;
-import com.chq.coursearrange.entity.request.ClassTaskDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +17,6 @@ import java.util.*;
  */
 @RestController
 public class ClassTaskController {
-
-    Logger log = LoggerFactory.getLogger(ClassTaskController.class);
 
     @Autowired
     private ClassTaskService classTaskService;
@@ -48,7 +44,6 @@ public class ClassTaskController {
 
     /**
      * 手动添加课程任务
-     *
      * @param classTask
      * @return
      */
@@ -63,8 +58,7 @@ public class ClassTaskController {
     }
 
     /**
-     * 手动添加课程任务
-     *
+     * 修改课程任务
      * @param classTask
      * @return
      */
@@ -76,7 +70,6 @@ public class ClassTaskController {
         }
         return ServerResponse.ofError("修改课程任务失败");
     }
-
 
     /**
      * 删除开课任务
@@ -94,10 +87,7 @@ public class ClassTaskController {
     }
 
     /**
-     * 获得学期集合,如：
-     * 2019-2020-1
-     * 2019-2020-2
-     *
+     * 获得学期集合
      * @return
      */
     @GetMapping("/semester")
@@ -117,7 +107,6 @@ public class ClassTaskController {
 
     /**
      * 排课算法接口，传入学期开始去查对应学期的开课任务，进行排课，排完课程后添加到course_plan表
-     *
      * @param semester
      * @return
      */
